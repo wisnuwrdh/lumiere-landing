@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #fdf8f3;
+  --color-cream-dark: #f5ede1;
+  --color-warm-white: #fffbff;
+  --color-soft-nude: #e8d5c4;
+  --color-blush-pink: #dba5a5;
+  --color-blush-pink-light: #f0d6d6;
+  --color-blush-pink-dark: #c27e7e;
+  --color-champagne: #f0e0c8;
+  --color-champagne-light: #f7efe0;
+  --color-champagne-dark: #d4bea0;
+  --color-charcoal: #2d2a25;
+  --color-charcoal-light: #5c5750;
+  --color-soft-rose: #faf0ee;
+  --color-lumiere: #c99789;
+  --color-lumiere-light: #e8cec7;
+  --color-lumiere-dark: #a67466;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+/* Section fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.15s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.45s forwards;
+  opacity: 0;
+}
+
+/* Scale animation for cards */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+/* Hover lift utility */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Button hover glow */
+.btn-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 151, 137, 0.35);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 251, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Product bottle glow */
+@keyframes productGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 8px 24px rgba(201, 151, 137, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 12px 36px rgba(201, 151, 137, 0.4));
+  }
+}
+
+.animate-product-glow {
+  animation: productGlow 4s ease-in-out infinite;
+}
+
+/* Smooth scroll reveal for sections */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
